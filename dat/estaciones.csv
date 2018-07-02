@@ -1,0 +1,25 @@
+NUMERO;ESTACION;DIRECCION;LONGITUD;LONG DD;LATITUD;LAT DD;ALTITUD;TIPO ESTACION;NO2;SO2;CO;PM10;PM2,5;O3;BTX;HC;UV;VV;DV;TMP;HR;PRB;RS;LL
+4;Pza. de Espana;Plaza de Espana;3_ 42' 44,09''O;-3,712247222;40_ 25' 25,87''N;40,42385278;635;UT;X;X;X;;;;;;;X;X;X;X;;;X
+8;Escuelas Aguirre;Entre C/ Alcala y C/ ODonell ;3_ 40' 56,35''O;-3,682319444;40_ 25' 17,63''N;40,42156389;670;UT;X;X;X;X;X;X;X;X;;;;;;;;
+11;Avda. Ramon y Cajal;Avda. Ramon y Cajal  esq. C/ Principe de Vergara;3_ 40' 38,48''O;-3,677355556;40_ 27' 05,31''N;40,451475;708;UT;X;;;;;;X;;;;;;;;;X
+16;Arturo Soria;C/ Arturo Soria  esq. C/  Vizconde de los Asilos ;3_ 38' 21,24''O;-3,639233333;40_ 26' 24,17''N;40,44004722;693;UF;X;;X;;;X;;;;;;;;;;X
+17;Villaverde;C/. Juan Penalver;3_ 42' 47,96''O;-3,713322222;40_ 20' 49,70''N;40,34713889;604;UF;X;X;;;;X;;;;;;;;;;
+18;Farolillo;Calle Farolillo - C/Ervigio;3_ 43' 54,67''O;-3,731852778;40_ 23' 41,21''N;40,39478056;630;UF;X;X;X;X;;X;X;;;;;X;;;;X
+24;Casa de Campo;Casa de Campo  (Terminal del Teleferico);3_ 44' 50,45''O;-3,747347222;40_ 25' 09,68''N;40,41935556;642;S;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X;X
+27;Barajas Pueblo;C/. Jupiter, 21 (Barajas) ;3_ 34' 48,11''O;-3,580030556;40_ 28' 36,94''N;40,47692778;621;UF;X;;;;;X;;;;;;;;;;
+35;Pza. del Carmen;Plaza del Carmen esq. Tres Cruces. ;"3_ 42' 11,42""O";-3,703172222;40_ 25' 9,15''N;40,41920833;659;UF;X;X;X;;;X;;;;;;;;;;
+36;Moratalaz;Avd. Moratalaz  esq. Camino de los Vinateros;3_ 38' 43,10''O;-3,645305556;40_ 24' 28,61''N;40,40794722;685;UT;X;X;X;X;;;;;;;;;;;;X
+38;Cuatro Caminos;Avda. Pablo Iglesias esq. C/ Marques de Lema;3_ 42' 25,66''O;-3,707127778;40_ 26' 43,96''N;40,44554444;698;UT;X;X;;X;X;;X;;;;;X;;;;X
+39;Barrio del Pilar;Avd. Betanzos esq. C/  Monforte de Lemos ;3_ 42' 41,55''O;-3,711541667;40_ 28' 41,62''N;40,47822778;674;UT;X;;X;;;X;;;;;;;;;;X
+40;Vallecas;C/ Arroyo del Olivar  esq. C/  Rio Grande. ;3_ 39' 05,48''O;-3,651522222;40_ 23' 17,35''N;40,38815278;677;UF;X;X;;X;;;;;;;;;;;;X
+47;Mendez Alvaro;C/ Juan de Mariana / Pza. Amanecer Mendez Alvaro;3_ 41' 12,57'O;-3,686825;40_ 23' 53,21''N;40,39811389;599;UF;X;;;X;X;;;;;;;;;;;
+48;Castellana;C/ Jose Gutierrez Abascal;3_ 41' 25,32'O;-3,690366667;40_ 26' 23,63''N;40,43989722;676;UT;X;;;X;X;;;;;;;;;;;
+49;Parque del Retiro;Paseo Venezuela- Casa de Vacas;3_ 40' 57,3''O;-3,682583333;40_ 24' 52''N;40,41444444;662;UF;X;;;;;X;;;;;;;;;;
+50;Plaza Castilla;Plaza Castilla (Canal);3_ 41' 19,57''O;-3,688769444;40_ 27' 56,06''N;40,46557222;728;UT;X;;;X;X;;;;;;;X;;;;
+54;Ensanche de Vallecas;Avda La Gavia / Avda. Las Suertes;3_ 36' 43,62'O;-3,612116667;40_ 22' 22,56''N;40,37293333;627;UF;X;;;;;X;;;X;X;X;X;;;;X
+55;Urb. Embajada;C/ Riano (Barajas) ;3_ 34' 50,69''O;-3,580747222;40_ 27' 45,11''N;40,46253056;618;UF;X;;;X;;;X;X;;;;;;;;
+56;Pza. Fernandez Ladreda; Pza. Fernandez Ladreda - Avda. Oporto;3_ 43' 07,42''O;-3,718727778;40_ 23' 05,87''N;40,38496389;604;UT;X;;X;;;X;;;;X;X;X;X;;;X
+57;Sanchinarro;C/ Princesa de Eboli esq C/ Maria Tudor;3_ 39' 37,81'O;-3,660502778;40_ 29' 39,15''N;40,49420833;700;UF;X;X;X;X;;;;;;;;X;;;;
+58;El Pardo;Avda. La Guardia;"3_ 46' 28,60""O";-3,774611111;40_ 31' 05,01''N;40,51805833;615;S;X;;;;;X;;;;;;;;;;
+59;Juan Carlos I;Parque Juan Carlos I (frente oficinas mantenimiento);"3_ 36' 32,66""O";-3,609072222;40_ 27' 54,90''N;40,46525;660;S;X;;;;;X;;;X;X;X;X;X;X;X;X
+60;Tres Olivos;Plaza Tres Olivos ;"3_ 41' 23,14""O";-3,689761111;40_ 30' 02,12''N;40,50058889;715;UF;X;;;X;;X;;;;;;;;X;;X
