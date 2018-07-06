@@ -4,8 +4,20 @@
 # Código: Mallado de la ciudad de Madrid
 ##########################################################################
 library(rgeos)
+
 #-----------------------------------------------------------
-# 1. Mallado de la ciudad
+# 1. Contorno de la ciudad de Madrid
+#-----------------------------------------------------------
+plot(barrios)
+points(estaciones$LONG.DD,estaciones$LAT.DD,col="red",pch=16)
+# Juntamos el mallado con los barrios de Madrid
+madrid_centro = gUnaryUnion(barrios,barrios$dummy)
+# intersección del grid con el mapa de los barrios
+map <- gIntersection(p,madrid_centro,drop_lower_td = TRUE)
+plot(madrid_centro)
+
+#-----------------------------------------------------------
+# 2. Mallado de la ciudad
 #-----------------------------------------------------------
 e <- extent(bbox(barrios))                  # define boundaries of object
 r <- raster(e)                           # create raster object 
@@ -24,20 +36,14 @@ qpal <- colorBin("Reds", barrios_agg$ORIG_FID, bins=5)       # define color bins
 plot2<-leaflet(barrios_agg) %>%
   #cambiar el fillOpacity a 0.5 para ver color
   addPolygons(stroke = TRUE,opacity = 1,fillOpacity = 0., smoothFactor = 0.5,
-              color="black",fillColor = ~qpal(ORIG_FID),weight = 0.5) %>%
-  addLegend(values=~ORIG_FID,pal=qpal,title="Niveles NOx de Madrid")
+              color="black",fillColor = ~qpal(ORIG_FID),weight = 0.5)# %>%
+  #addLegend(values=~ORIG_FID,pal=qpal,title="Niveles NOx de Madrid")
 #mallado
 plot2
 
-
 #-----------------------------------------------------------
-# 2. Mallado de la ciudad sobre mapa
+# 3. Mallado de la ciudad sobre mapa
 #-----------------------------------------------------------
-# Juntamos el mallado con los barrios de Madrid
-madrid_centro = gUnaryUnion(barrios,barrios$dummy)
-# intersección del grid con el mapa de los barrios
-map <- gIntersection(p,madrid_centro,drop_lower_td = TRUE)
-plot(madrid_centro)
 # la clase de map--> es spatialpolygons
 barrios_agg2 <- aggregate(x=barrios["ORIG_FID"],by=map,FUN=length)
 barrios_agg2$ORIG_FID[is.na(barrios_agg2$ORIG_FID)] <- 0
@@ -45,25 +51,39 @@ barrios_agg2 <- spTransform(barrios_agg2, CRS("+init=epsg:4326"))
 qpal <- colorBin("Reds", barrios_agg2$ORIG_FID, bins=5)
 plot3 <- leaflet(barrios_agg2) %>%
   addPolygons(stroke = TRUE,opacity = 1,fillOpacity = 0, smoothFactor = 0.5,
-              color="black",fillColor = ~qpal(ORIG_FID),weight = 0.5) %>%
-  addLegend(values=~ORIG_FID,pal=qpal,title="Niveles NOx de Madrid")
+              color="black",fillColor = ~qpal(ORIG_FID),weight = 0.5) #%>%
+  #addLegend(values=~ORIG_FID,pal=qpal,title="Niveles NOx de Madrid")
+
+# Mallado de la ciudad de Madrid en el mapa
 plot3<-plot2%>% addTiles()
 plot4 <- plot3 %>% addTiles()
-# mapa Google con el mallado
 plot4
-#hace un zoom dee la zona de interés
+# Zoom dee la zona de interés
 cent <- gCentroid(barrios_agg2) # Find center of map
 plot5 <- plot4 %>% setView(zoom = 10.5,lng=cent@coords[[1]], lat=cent@coords[[2]])
 plot5
 
 #-----------------------------------------------------------
-# 3. Centroides del mallado
+# 3. Centroides del mallado y estaciones
 #-----------------------------------------------------------
 #mallado con los centroides de cada celda
 trueCentroids = gCentroid(barrios_agg,byid=TRUE)
 plot(barrios_agg)
-points(coordinates(barrios_agg),pch=1,col="red")
-points(trueCentroids,pch=3, col="red")
+points(estaciones$LONG.DD,estaciones$LAT.DD,col="red",pch=16)
+points(coordinates(barrios_agg),pch=1,col="blue")
+points(trueCentroids,pch=3, col="blue")
 head(coordinates(trueCentroids))
+
+#-----------------------------------------------------------
+# 4. Comprobamos que el el contorno y el mallado se ajusta a los bordes de la Ciudad
+#-----------------------------------------------------------
+
+leaflet(data = estaciones) %>% addTiles() %>%
+  addPolygons(data = barrios_agg2)%>%
+  addMarkers(~estaciones$LONG.DD, ~estaciones$LAT.DD, icon = greenLeafIcon)
+
+leaflet(data = estaciones) %>% addTiles() %>%
+  addPolygons(data = barrios_agg)%>%
+  addMarkers(~estaciones$LONG.DD, ~estaciones$LAT.DD, icon = greenLeafIcon)
 
 
