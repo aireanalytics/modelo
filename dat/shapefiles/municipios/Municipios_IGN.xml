@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?><gmd:MD_Metadata xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:srv="http://www.isotc211.org/2005/srv" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<gmd:characterSet>
+<gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</gmd:MD_CharacterSetCode>
+</gmd:characterSet>
+<gmd:hierarchyLevel>
+<gmd:MD_ScopeCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_ScopeCode" codeListValue="dataset" codeSpace="ISOTC211/19115">dataset</gmd:MD_ScopeCode>
+</gmd:hierarchyLevel>
+<gmd:hierarchyLevelName>
+<gco:CharacterString>dataset</gco:CharacterString>
+</gmd:hierarchyLevelName>
+<gmd:contact gco:nilReason="missing"/>
+<gmd:dateStamp gco:nilReason="missing"/>
+<gmd:metadataStandardName>
+<gco:CharacterString>ISO 19139 Geographic Information - Metadata - Implementation Specification</gco:CharacterString>
+</gmd:metadataStandardName>
+<gmd:metadataStandardVersion>
+<gco:CharacterString>2007</gco:CharacterString>
+</gmd:metadataStandardVersion>
+<gmd:identificationInfo>
+<gmd:MD_DataIdentification>
+<gmd:citation gco:nilReason="missing"/>
+<gmd:abstract>
+<gco:CharacterString>Mapa con información de los límites de los municipios españoles.Archivos de límite de municipios del Área del Registro Central de Cartografía del IGN.Capa suministrada por el IGNSistema de Referencia: WGS_1984_Web_Mercator_Auxiliary_SphereFecha de actualización de los datos: 18/11/2015Fecha de publicación: 11/05/2016</gco:CharacterString>
+</gmd:abstract>
+<gmd:purpose>
+<gco:CharacterString>Mapa con información de los límites de los municipios españoles. Fuente IGN</gco:CharacterString>
+</gmd:purpose>
+<gmd:credit>
+<gco:CharacterString>© Instituto Geográfico Nacional de España</gco:CharacterString>
+</gmd:credit>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:descriptiveKeywords>
+<gmd:MD_Keywords>
+<gmd:keyword>
+<gco:CharacterString>Municipios</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Mapas Base</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Basemaps</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Limites y Lugares</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Boundaries and Places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>España</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Spain</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Esri Contenidos</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>boundaries</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>places</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>territorio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>administracion</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>municipio</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ArcGIS</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>ESPAÑA</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>IGN</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Unidades administrativas</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>Service Definition</gco:CharacterString>
+</gmd:keyword>
+<gmd:keyword>
+<gco:CharacterString>.sd</gco:CharacterString>
+</gmd:keyword>
+</gmd:MD_Keywords>
+</gmd:descriptiveKeywords>
+<gmd:resourceConstraints>
+<gmd:MD_Constraints>
+<gmd:useLimitation>
+<gco:CharacterString>La información geográfica digital comprendida en el Equipamiento Geográfico de Referencia Nacional (EGRN), (artículo 1.1 de la Orden FOM/956/2008 ) y los Metadatos de los datos geográficos producidos por el IGN y de los servicios de información geográfica prestados por el IGN y el CNIG, no requieren la aceptación de licencia , y su uso, en cualquier caso, tendrá carácter libre y gratuito, siempre que se mencione al IGN como origen y propietario de los datos (mediante la referencia «© Instituto Geográfico Nacional de España»).</gco:CharacterString>
+</gmd:useLimitation>
+</gmd:MD_Constraints>
+</gmd:resourceConstraints>
+<gmd:language gco:nilReason="missing"/>
+<gmd:characterSet>
+<gmd:MD_CharacterSetCode codeList="http://www.isotc211.org/2005/resources/Codelist/gmxCodelists.xml#MD_CharacterSetCode" codeListValue="utf8" codeSpace="ISOTC211/19115">utf8</gmd:MD_CharacterSetCode>
+</gmd:characterSet>
+</gmd:MD_DataIdentification>
+</gmd:identificationInfo>
+</gmd:MD_Metadata>
