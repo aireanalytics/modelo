@@ -1,6 +1,6 @@
 ################################################################################
 # Proyecto: Aire Analytics
-# Fecha última modificación: 2018-07-10
+# Fecha última modificación: 2018-07-13
 # Código: Instalación de paquetes, definición de funciones y carga de estaciones
 ################################################################################
 
@@ -34,6 +34,9 @@ library(ggmap)
 if(!is.element("rJava", installed.packages()[, 1]))
   install.packages("rJava")
 library(rJava)
+if(!is.element("jsonlite", installed.packages()[, 1]))
+  install.packages("jsonlite")
+library(jsonlite)
 if(!is.element("XLConnect", installed.packages()[, 1])){install.packages("XLConnect")}
 if(!is.element("geosphere", installed.packages()[, 1])){install.packages("geosphere")}
 library(XLConnect)
@@ -42,11 +45,11 @@ require(rJava)
 if(!is.element("rPython", installed.packages()[, 1]))
   install.packages("rPython")
 library(rPython)
-
 # Funcion de latitud y longitud. Convierte el grados y segundos a decimales.
 LatLon<-function(DATAFRAME){
+  DATAFRAME <- as.character(DATAFRAME)
   # Grados
-  matriz=matrix(unlist(strsplit(DATAFRAME,"º")),ncol=2,byrow=TRUE)
+  matriz=matrix(unlist(strsplit(DATAFRAME,"º ")),ncol=2,byrow=TRUE)
   grados=as.numeric(matriz[,1])
   # Minutos
   matriz=matrix(unlist(strsplit(matriz[,2],"' ")),ncol=2,byrow=TRUE)
@@ -70,20 +73,24 @@ distancia<-function(Lat1,Lon1,Lat2,Lon2){
 #-----------------------------------------------------------
 #Si estaciones.csv existe lee. Si no existe, descarga la info, aplica la función
 #que convierte lat y long en decimales y crea el archivo
-if (file.exists("../dat/estaciones/estaciones.csv")){
+if (file.exists("../dat/estaciones/estaciones_ayuntamiento.csv")){
   # Lectura de las estaciones
-  estaciones <- read.csv2("../dat/estaciones/estaciones.csv",sep=",")
+  estaciones_ayuntamiento <- read.csv2("../dat/estaciones/estaciones_ayuntamiento.csv",sep=",")
 } else {
   # Descarga de los datos de las estaciones y lee el archivo
   tmp=tempfile(fileext=".xls")
   download.file(url="https://datos.madrid.es/egob/catalogo/212629-0-estaciones-control-aire.xls", destfile=tmp, mode="wb",quiet=TRUE)
-  estaciones<-readWorksheetFromFile(tmp,sheet=1,startRow=5)
-  estaciones<-subset(estaciones,!(is.na(estaciones$LONGITUD))&!(is.na(estaciones$LATITUD)))
-  estaciones$LAT.DD=LatLon(estaciones$LATITUD)
-  estaciones$LONG.DD=LatLon(estaciones$LONGITUD)
+  estaciones_ayuntamiento<-readWorksheetFromFile(tmp,sheet=1,startRow=5)
+  estaciones_ayuntamiento<-subset(estaciones,!(is.na(estaciones$LONGITUD))&!(is.na(estaciones$LATITUD)))
+  estaciones_ayuntamiento$LAT.DD=LatLon(estaciones$LATITUD)
+  estaciones_ayuntamiento$LONG.DD=LatLon(estaciones$LONGITUD)
   file.remove(tmp)
   #crea el archivo estaciones.csv para no tener que bajarlo cada vez que se ejecute el código
-  write.csv(estaciones,file="../dat/estaciones/estaciones.csv", sep=";",dec=".",col.names=TRUE,fileEncoding ="utf-8")
+  write.csv(estaciones_ayuntamiento,file="../dat/estaciones/estaciones_ayuntamiento.csv", sep=";",dec=".",col.names=TRUE,fileEncoding ="utf-8")
 }
-head(estaciones)
-View(estaciones)
+#head(estaciones_ayuntamiento)
+#View(estaciones_ayuntamiento)
+
+estaciones_comunidad <- read.csv2("../dat/estaciones/estaciones_comunidad.csv", dec=",", header=T)
+#
+#View(estaciones_comunidad)
