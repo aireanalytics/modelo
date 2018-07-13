@@ -1,6 +1,6 @@
 ##########################################################################
 # Proyecto: Aire Analytics
-# Fecha última modificación: 2018-07-10
+# Fecha última modificación: 2018-07-13
 # Código: mapas de los municipios y barrios de Madrid
 ##########################################################################
 #Cargamos librerías
@@ -40,13 +40,21 @@ municipios_espanha <- readOGR(dsn="../dat/shapefiles/municipios",layer="Municipi
 municipios<-municipios_espanha[municipios_espanha@data$CODNUT2=="ES30",]
 plot(municipios)
 
+estaciones_ayuntamiento$LAT.DD <- as.numeric(as.character(estaciones_ayuntamiento$LAT.DD))
+estaciones_ayuntamiento$LONG.DD <- as.numeric(as.character(estaciones_ayuntamiento$LONG.DD))
+estaciones_comunidad$LATITUD <- as.numeric(as.character(estaciones_comunidad$LATITUD))
+estaciones_comunidad$LONGITUD <- as.numeric(as.character(estaciones_comunidad$LONGITUD))
 #-----------------------------------------------------------
 # 2. Ploteamos las estaciones de medición de la capital
 #-----------------------------------------------------------
 #Usamos longitudes y latitudes como primera y segunda columnas, respectivamente.
-estacionesdf <- data.frame(Longitude = estaciones$LONG.DD,
-                         Latitude =estaciones$LAT.DD,
-                         names = estaciones$NUMERO)
+estacionesdf1 <- data.frame(Longitude = estaciones_ayuntamiento$LONG.DD,
+                         Latitude =estaciones_ayuntamiento$LAT.DD,
+                         names = estaciones_ayuntamiento$NÚMERO)
+estacionesdf2 <- data.frame(Longitude = estaciones_comunidad$LONGITUD,
+                           Latitude =estaciones_comunidad$LATITUD,
+                           names = estaciones_comunidad$COD_ESTACIÓN)
+estacionesdf <-rbind(estacionesdf1,estacionesdf2)
 #Obtenemos las coordenadas de las estaciones.
 coordinates(estacionesdf) <- ~ Latitude + Longitude
 #Determinamos la proyección del objeto SpatialPointsDataFrame usando la proyección del shapefile.
@@ -71,8 +79,20 @@ greenLeafIcon <- makeIcon(
   #shadowWidth = 50, shadowHeight = 64,
   #shadowAnchorX = 4, shadowAnchorY = 62
 )
-leaflet(data = estaciones) %>% addTiles() %>%
-  addMarkers(~estaciones$LONG.DD, ~estaciones$LAT.DD, icon = greenLeafIcon)
+#municipios@proj4string <-CRS("+init=epsg:3857")
+#municipios <- spTransform(municipios,  CRS("+ellps=WGS84 +proj=longlat +datum=WGS84 +no_defs"))
+
+#estacionesdf$Latitude ~ estacionesdf$Longitude
+leaflet(data = estacionesdf) %>% addTiles() %>%
+  addMarkers(~ estacionesdf$Longitude, estacionesdf$Latitude, icon = greenLeafIcon)%>%
+  #addMarkers(~estaciones_comunidad$LONGITUD, ~estaciones_comunidad$LAT, icon = greenLeafIcon)%>%
+  addPolygons(data = municipios, stroke = TRUE, weight = 1, opacity = 0.5, fill = TRUE, fillOpacity = 0.2)
+
+#addPolygons(map, lng = NULL, lat = NULL, layerId = NULL, group = NULL,
+#    stroke = TRUE, color = "#03F", weight = 5, opacity = 0.5,
+#    fill = TRUE, fillColor = color, fillOpacity = 0.2, dashArray = NULL,
+#    smoothFactor = 1, noClip = FALSE, popup = NULL, popupOptions = NULL,
+#     label = NULL, labelOptions = NULL, options = pathOptions(),
 #-----------------------------------------------------------
 # 4. El objetivo es obtener un mallado de la ciudad de Madrid. Para esto:
 #    - Incorporaremos los barrios de la ciudad de Madrid 
