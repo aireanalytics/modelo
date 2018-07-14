@@ -1,6 +1,6 @@
 ##########################################################################
 # Proyecto: Aire Analytics
-# Fecha última modificación: 2018-07-13
+# Fecha última modificación: 2018-07-14
 # Código: Mallado de la ciudad de Madrid
 ##########################################################################
 library(rgeos)
@@ -13,7 +13,7 @@ points(estaciones_ayuntamiento$LONG.DD,estaciones_ayuntamiento$LAT.DD,col="red",
 # Juntamos el mallado con los barrios de Madrid
 madrid_centro = gUnaryUnion(barrios,barrios$dummy)
 # intersección del grid con el mapa de los barrios
-map <- gIntersection(p,madrid_centro,drop_lower_td = TRUE)
+map <- gIntersection(barrios,madrid_centro,drop_lower_td = TRUE)
 plot(madrid_centro)
 
 #-----------------------------------------------------------
