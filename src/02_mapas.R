@@ -1,6 +1,6 @@
 ##########################################################################
 # Proyecto: Aire Analytics
-# Fecha última modificación: 2018-07-13
+# Fecha última modificación: 2018-07-14
 # Código: mapas de los municipios y barrios de Madrid
 ##########################################################################
 #Cargamos librerías
@@ -124,7 +124,7 @@ barrios <- readOGR(dsn="../dat/shapefiles/barrios",layer="BARRIOS")
 base.map <- gmap(barrios, type = "terrain")
 reprojected.barrios <- spTransform(barrios, base.map@crs)
 plot(base.map)
-points(estaciones$LONG.DD,estaciones$LAT.DD,col="red",pch=16)
+points(estaciones_ayuntamiento$LONG.DD,estaciones_ayuntamiento$LAT.DD,col="red",pch=16)
 #barrios de la ciudad de Madrid
 plot(reprojected.barrios, add = T, border = "black", col = "transparent")
 
@@ -136,3 +136,4 @@ plot(barrios)
 points(coordinates(barrios),pch=3,col="red")
 head(coordinates(trueCentroids))
 #en el siguiente .R se realizará el mallado de esta zona
+
