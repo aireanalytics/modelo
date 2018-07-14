@@ -3,6 +3,7 @@
 # Fecha última modificación: 2018-07-13
 # Código: Instalación de paquetes, definición de funciones y carga de estaciones
 ################################################################################
+#rm(list=ls()) para limpiar el environment
 
 #-----------------------------------------------------------
 # 0. Incorporamos los paquetes que van a ser necesarios
@@ -19,6 +20,9 @@ library(dismo)
 if(!is.element("leaflet", installed.packages()[, 1]))
 install.packages("leaflet")
 library(leaflet)
+if(!is.element("rgdal", installed.packages()[, 1]))
+  install.packages("rgdal")
+library(rgdal)
 if(!is.element("openair", installed.packages()[, 1]))
 install.packages("openair", dep=TRUE)
 library(openair)
@@ -94,3 +98,4 @@ if (file.exists("../dat/estaciones/estaciones_ayuntamiento.csv")){
 estaciones_comunidad <- read.csv2("../dat/estaciones/estaciones_comunidad.csv", dec=",", header=T)
 #
 #View(estaciones_comunidad)
+
