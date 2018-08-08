@@ -1,0 +1,115 @@
+---
+title: "unificaTrafico"
+author: "fpm"
+date: "August 7, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Código para generar unos csv de tráfico únicos filtrados según el criterio de los puntos representativos creados en el fichero pmed_filtrados.csv
+En los ficheros csv vienen identificados del siguiente modo:
+hasta el 10/2014 (incluido) tiene un campo "identif"
+a partir del 11/2014 tiene "idelem" e "identif",
+a partir del 10/2017 sólo tiene "id".
+
+Inicialmente se lee en fichero de los puntos elegidos
+```{r}
+dataPath = '/media/fernando/DataDisk/aireAnalytics/dataTrafico/'
+```
+
+
+```{r}
+puntos <- read.csv2(paste0(dataPath, 'pmed_filtrados.csv'), header=TRUE , sep = ',')
+```
+
+```{r}
+ficheros <- list.files(path=dataPath,pattern="-20|csv")
+```
+
+
+```{r}
+# 
+getId <- function(cod_cent){
+    puntos$id[puntos$cod_cent == as.character(cod_cent)]
+}
+```
+
+funcion que trata el fichero y deja como resultado uno resumido
+
+```{r}
+trataFichero <- function(fichero){
+  print("trata el fichero:")
+  print(as.character(fichero))
+  data1tr <- data.frame()
+  data1 <- read.csv2(paste0(dataPath, as.character(fichero)))
+  if ('id' %in% colnames(data1)) {
+    print("caso 1")
+    data1tr <- data1[(data1$id %in% puntos$id), c('id','fecha','intensidad')]
+  }else if ('idelem' %in% colnames(data1)){
+    print("caso2")
+    data1tr <- data1[data1$idelem %in% puntos$id, c('idelem','fecha','intensidad')]
+    data1tr$id[] <- NA
+    data1tr$id <- as.character(data1tr$idelem)
+    data1tr <- data1tr[, c('id','fecha','intensidad')]
+  }else if ('identif' %in% colnames(data1)){
+    print("caso3")
+    data1tr <- data1[data1$identif %in% puntos$cod_cent, c('identif','fecha','intensidad')]
+    data1tr$id[] <- NA
+    data1tr$id <- lapply(data1tr$identif,getId)
+    data1tr <- data1tr[, c('id','fecha','intensidad')]
+  }
+  #quitamos la lista de id para que sea vector
+  data1tr$id <- unlist(data1tr$id)
+  #vuelca el fichero con prefijo 'fil_'
+  nombreFinal <- paste0('fil', as.character(fichero))
+  print("escribe el fichero: ")
+  print (nombreFinal)
+  write.csv2(x = data1tr,file = paste0(dataPath,nombreFinal))
+}
+```
+
+aplicamos la función a todos los ficheros
+
+```{r}
+lapply(ficheros,trataFichero)
+```
+
+Ahora se leen los ficheros filtrados para separa la fecha en año, día y mes, hacer las medias diarias y dejarlo todo unificado
+
+```{r}
+ficheros <- list.files(path=dataPath,pattern="fil")
+```
+
+```{r}
+library(sqldf)
+trataFicheroFiltrado <- function(fichero){
+  ficheroDatos <- paste0(dataPath, as.character(fichero))
+  if (file_test("-f",ficheroDatos)){
+    print("trata el fichero:")
+    print(as.character(ficheroDatos))
+    data1 <- read.csv2(ficheroDatos)
+    data1$fecha<-substr(as.character(data1$fecha), 0, 10)
+    data1 <- sqldf("SELECT id, fecha, AVG(intensidad) as intensidad from data1 group by id, fecha")
+    #vuelca el fichero final
+    print("escribe el fichero: ")
+    ficheroFinal <- paste0(dataPath,"traficoUnificado.csv")
+    if (file.exists(ficheroFinal)){
+      app <- T
+    }else{
+      app <-F
+    }
+    write.table(data1[, c('id','fecha','intensidad')], file =ficheroFinal, append=app, row.names=F, col.names=T,  sep=";" )    
+  }
+
+}
+```
+
+
+```{r}
+lapply(ficheros,trataFicheroFiltrado)
+```
+
+
