@@ -1,0 +1,25 @@
+"","X","NÚMERO","ESTACIÓN","DIRECCIÓN","LONGITUD","LATITUD","ALTITUD","TIPO.ESTACION..","NO2","SO2","CO","PM10","PM2.5","O3","BTX","HC","UV","VV","DV","TMP","HR","PRB","RS","LL","LAT.DD","LONG.DD"
+"1",1,4,"Pza. de España","Plaza de España","3º 42' 44,09''O","40º 25' 25,87''N",635,"UT","X","X","X",NA,NA,NA,NA,NA,NA,"X","X","X","X",NA,NA,"X",40.4238527777778,-3.71224722222222
+"2",2,8,"Escuelas Aguirre","Entre C/ Alcalá y C/ O’ Donell ","3º 40' 56,35''O","40º 25' 17,63''N",670,"UT","X","X","X","X","X","X","X","X",NA,NA,NA,NA,NA,NA,NA,NA,40.4215638888889,-3.68231944444444
+"3",3,11,"Avda. Ramón y Cajal","Avda. Ramón y Cajal  esq. C/ Príncipe de Vergara","3º 40' 38,48''O","40º 27' 05,31''N",708,"UT","X",NA,NA,NA,NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,"X",40.451475,-3.67735555555556
+"4",4,16,"Arturo Soria","C/ Arturo Soria  esq. C/  Vizconde de los Asilos ","3º 38' 21,24''O","40º 26' 24,17''N",693,"UF","X",NA,"X",NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,"X",40.4400472222222,-3.63923333333333
+"5",5,17,"Villaverde","C/. Juan Peñalver","3º 42' 47,96''O","40º 20' 49,70''N",604,"UF","X","X",NA,NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.3471388888889,-3.71332222222222
+"6",6,18,"Farolillo","Calle Farolillo - C/Ervigio","3º 43' 54,67''O","40º 23' 41,21''N",630,"UF","X","X","X","X",NA,"X","X",NA,NA,NA,NA,"X",NA,NA,NA,"X",40.3947805555556,-3.73185277777778
+"7",7,24,"Casa de Campo","Casa de Campo  (Terminal del Teleférico)","3º 44' 50,45''O","40º 25' 09,68''N",642,"S","X","X","X","X","X","X","X","X","X","X","X","X","X","X","X","X",40.4193555555556,-3.74734722222222
+"8",8,27,"Barajas Pueblo","C/. Júpiter, 21 (Barajas) ","3º 34' 48,11''O","40º 28' 36,94''N",621,"UF","X",NA,NA,NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.4769277777778,-3.58003055555556
+"9",9,35,"Pza. del Carmen","Plaza del Carmen esq. Tres Cruces. ","3º 42' 11,42""O","40º 25' 9,15''N",659,"UF","X","X","X",NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.4192083333333,-3.70317222222222
+"10",10,36,"Moratalaz","Avd. Moratalaz  esq. Camino de los Vinateros","3º 38' 43,10''O","40º 24' 28,61''N",685,"UT","X","X","X","X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"X",40.4079472222222,-3.64530555555556
+"11",11,38,"Cuatro Caminos","Avda. Pablo Iglesias esq. C/ Marqués de Lema","3º 42' 25,66''O","40º 26' 43,96''N",698,"UT","X","X",NA,"X","X",NA,"X",NA,NA,NA,NA,"X",NA,NA,NA,"X",40.4455444444444,-3.70712777777778
+"12",12,39,"Barrio del Pilar","Avd. Betanzos esq. C/  Monforte de Lemos ","3º 42' 41,55''O","40º 28' 41,62''N",674,"UT","X",NA,"X",NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,"X",40.4782277777778,-3.71154166666667
+"13",13,40,"Vallecas","C/ Arroyo del Olivar  esq. C/  Río Grande. ","3º 39' 05,48''O","40º 23' 17,35''N",677,"UF","X","X",NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,"X",40.3881527777778,-3.65152222222222
+"14",14,47,"Mendez Alvaro","C/ Juan de Mariana / Pza. Amanecer Mendez Alvaro","3º 41' 12,57'O","40º 23' 53,21''N",599,"UF","X",NA,NA,"X","X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.3981138888889,-3.686825
+"15",15,48,"Castellana","C/ Jose Gutierrez Abascal","3º 41' 25,32'O","40º 26' 23,63''N",676,"UT","X",NA,NA,"X","X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.4398972222222,-3.69036666666667
+"16",16,49,"Parque del Retiro","Paseo Venezuela- Casa de Vacas","3º 40' 57,3''O","40º 24' 52''N",662,"UF","X",NA,NA,NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.4144444444444,-3.68258333333333
+"17",17,50,"Plaza Castilla","Plaza Castilla (Canal)","3º 41' 19,57''O","40º 27' 56,06''N",728,"UT","X",NA,NA,"X","X",NA,NA,NA,NA,NA,NA,"X",NA,NA,NA,NA,40.4655722222222,-3.68876944444444
+"18",18,54,"Ensanche de Vallecas","Avda La Gavia / Avda. Las Suertes","3º 36' 43,62'O","40º 22' 22,56''N",627,"UF","X",NA,NA,NA,NA,"X",NA,NA,"X","X","X","X",NA,NA,NA,"X",40.3729333333333,-3.61211666666667
+"19",19,55,"Urb. Embajada","C/ Riaño (Barajas) ","3º 34' 50,69''O","40º 27' 45,11''N",618,"UF","X",NA,NA,"X",NA,NA,"X","X",NA,NA,NA,NA,NA,NA,NA,NA,40.4625305555556,-3.58074722222222
+"20",20,56,"Pza. Fernández Ladreda"," Pza. Fernández Ladreda - Avda. Oporto","3º 43' 07,42''O","40º 23' 05,87''N",604,"UT","X",NA,"X",NA,NA,"X",NA,NA,NA,"X","X","X","X",NA,NA,"X",40.3849638888889,-3.71872777777778
+"21",21,57,"Sanchinarro","C/ Princesa de Eboli esq C/ Maria Tudor","3º 39' 37,81'O","40º 29' 39,15''N",700,"UF","X","X","X","X",NA,NA,NA,NA,NA,NA,NA,"X",NA,NA,NA,NA,40.4942083333333,-3.66050277777778
+"22",22,58,"El Pardo","Avda. La Guardia","3º 46' 28,60""O","40º 31' 05,01''N",615,"S","X",NA,NA,NA,NA,"X",NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,40.5180583333333,-3.77461111111111
+"23",23,59,"Juan Carlos I","Parque Juan Carlos I (frente oficinas mantenimiento)","3º 36' 32,66""O","40º 27' 54,90''N",660,"S","X",NA,NA,NA,NA,"X",NA,NA,"X","X","X","X","X","X","X","X",40.46525,-3.60907222222222
+"24",24,60,"Tres Olivos","Plaza Tres Olivos ","3º 41' 23,14""O","40º 30' 02,12''N",715,"UF","X",NA,NA,"X",NA,"X",NA,NA,NA,NA,NA,NA,NA,"X",NA,"X",40.5005888888889,-3.68976111111111
