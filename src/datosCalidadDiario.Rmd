@@ -1,0 +1,75 @@
+---
+title: "calidadDiario"
+author: "fpm"
+date: "August 10, 2018"
+output: html_document
+---
+
+Código para generar un csv de calidad del aire en media diaria
+el fichero de datos indica el año con dos cifras en luagar de una
+
+Inicialmente se lee en fichero de los puntos elegidos
+```{r}
+dataPath = '/media/fernando/DataDisk/aireAnalytics/dataCalidad/'
+```
+
+```{r}
+fichero = 'datosCalidadfiltrados24h.csv'
+```
+
+```{r}
+datos1 <- read.csv2(paste0(dataPath, fichero), header=TRUE , sep = ',')
+```
+eliminamos los datos que se corresponden con registros de años erróneos
+```{r}
+data1 <- datos1[datos1$AÑO < 1000 | datos1$AÑO > 2000, ]
+```
+```{r}
+data1[is.na(data1)] <- 0
+```
+
+```{r}
+head(data1)
+```
+
+```{r}
+media <- function(i){
+  suma = 0
+  for (j in which(colnames(data1)=="H1"):which(colnames(data1)=="H24")) {
+    suma = suma+as.numeric(as.character(data1[i,j]))
+  }
+  med = suma/24
+  return (med)
+}
+```
+
+
+```{r}
+data1$valor <- lapply(1:nrow(data1),media)
+
+```
+
+```{r}
+completaAnno <- function(a){
+  anno <- as.character(a)
+  if (nchar(anno) == 2){
+    anno <- paste0('20', anno)
+  }
+  return(anno)
+}
+```
+
+```{r}
+data1$fecha <-paste0(lapply(data1$AÑO,completaAnno),'-',as.character(data1$MES),'-',as.character(data1$DIA))
+
+```
+
+```{r}
+data1$valor <- unlist(data1$valor)
+```
+
+
+```{r}
+write.csv2(x = data1,file = paste0(dataPath,'datosCalidadfiltradosDiario.csv'))
+```
+
