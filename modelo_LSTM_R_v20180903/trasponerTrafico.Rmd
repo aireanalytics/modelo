@@ -1,0 +1,80 @@
+---
+title: "trasponerTrafico"
+author: "fpm"
+date: "August 18, 2018"
+output: html_document
+---
+
+Seleccionamos nuestro directorio de trabajo, en el que tenemos la carpeta "Datos", con los archivos descomprimidos.
+
+```{r}
+#setwd("C:/Users/usuario/Downloads/Datasets")
+
+setwd("D:\\Users\\fpena\\Documents\\rprojects\\modelo2")
+```
+
+Se lee el dataset de tráfico que queremos trasponer
+```{r}
+trafico <- read.csv("traficoUnificado.csv")
+```
+
+prire tenemos las fechas
+```{r}
+fechaunica <- unique(trafico$fecha)
+fechaunica <- as.Date(fechaunica)
+fechaunica <- fechaunica[fechaunica >= '2014-01-01' & fechaunica < '2018-01-01' & !is.na(fechaunica)]
+
+summary(fechaunica)
+```
+```{r}
+traf1 <- data.frame(fechaunica)
+```
+
+```{r}
+colnames(traf1) <- c('fecha')
+```
+
+lista de las estaciones
+```{r}
+estaciones <- as.character(unique(trafico$id))
+```
+añadimos las columnas al df de trafico
+funcion que añade la columna con la intensidad de una estacion
+
+```{r}
+which(traf1$fecha == '2084-01-01')
+```
+
+
+```{r}
+addEst <- function (estacion) {
+  temp <- trafico[as.character(trafico$id)==as.character(estacion),]
+  intensidad <- c()
+  for (fecha in as.character(traf1$fecha)){
+    intAux <- 0
+    if ( length(which(as.character(temp$fecha) == fecha)) > 0){
+      intAux <- as.character(temp$intensidad[which(as.character(temp$fecha) == fecha)])
+    } else{
+      intAux <- as.character('0')
+    }
+    intensidad <- c(intensidad,intAux)
+  }
+  #print (head(traf1))
+  return(intensidad)
+}
+```
+
+aplicamos la funcion al vector de estaciones
+```{r}
+for (estacion in as.character(estaciones)){
+  traf1$nueva <- NA
+  intensidad <- addEst(as.character(estacion))
+  traf1$nueva <- intensidad
+  colnames(traf1)[colnames(traf1)=="nueva"] <- paste0("est",as.character(estacion))
+}
+
+```
+```{r}
+write.csv(traf1,file="traficoEstaciones.csv")
+```
+
