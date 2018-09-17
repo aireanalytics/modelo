@@ -1,0 +1,162 @@
+---
+title: "modelo_LSTM"
+author: "fpm"
+date: "September 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#estaciones de calidad del Ayuntamiento de Madrid
+#28079004 Pl España
+#28079049 Retiro
+estaciones_calidad_activas <- c('28079004','28079049')
+
+```
+
+```{r}
+data <- read.csv2('28079004datos.csv', header = TRUE, sep = ',')
+```
+eliminamos NA
+```{r}
+data <- data[!is.na(data$cont8),]
+```
+eliminamos la columna X
+
+```{r}
+data <- data[,c('fecha','est3491','est6809','est4451','est4138','prec','presMax','presMin','racha',
+                'velmedia','tmax','tmed','tmin','cont8')]
+```
+
+se selecciona el tipo de cada dato
+```{r}
+data$fecha <- as.Date(data$fecha)
+data$est3491 <- as.numeric(data$est3491)
+data$est6809 <- as.numeric(data$est6809)
+data$est4451 <- as.numeric(data$est4451)
+data$est4138 <- as.numeric(data$est4138)
+data$prec <- as.numeric(data$prec)
+data$presMax <- as.numeric(data$presMax)
+data$presMin <- as.numeric(data$presMin)
+data$racha <- as.numeric(data$racha)
+data$velmedia <- as.numeric(data$velmedia)
+data$tmax <- as.numeric(data$tmax)
+data$tmed <- as.numeric(data$tmed)
+data$tmin <- as.numeric(data$tmin)
+data$cont8 <- as.numeric(data$cont8)
+
+```
+Vamos a realizar la predicción sobrel el incremento de contaminación, por lo tanto lo que hacemos es generar una nueva variable que indicael incremento del contaminante sobre el día anterior
+
+```{r}
+data$incremento <-NA[]
+```
+
+```{r}
+for (i in (2:nrow(data))){
+  data$incremento[i] <- as.numeric(data$cont8[i]) - as.numeric(data$cont8[i-1])
+}
+```
+
+
+normalizamos los datos eliminando la primera fila que no tiene incremento
+```{r}
+dataNuevo <- data[!is.na(data$incremento),]
+dataNorm <- scale(dataNuevo[,2:15])
+```
+
+```{r}
+datos = cor(dataNorm)
+print(datos)
+```
+```{r}
+library(ggcorrplot)
+ggcorrplot(datos)
+```
+
+creamos una matriz con los datos normalizados que influyen en la contaminacion
+```{r}
+dataModelo <- dataNorm[, c(1,2,3,4,6,7,9,14)]
+
+```
+se añade la fecha
+```{r}
+dataModelo <- cbind(as.Date(dataNuevo$fecha), dataModelo) 
+```
+
+```{r}
+colnames(dataModelo)[1] <- 'fecha'
+```
+
+Representamos gráficamente las variables en el tiempo con el factor de contaminación para ver las realciones
+```{r}
+for (col in (2:8)){
+  plot(x=dataModelo[,1], y=dataModelo[,c(col)], type = "l", main = colnames(dataModelo)[col], col='blue')
+  lines(x=dataModelo[,1], y=dataModelo[,9], col='green')
+}
+```
+
+inicialmente se genera una serie temporal para usar en el arima
+```{r}
+dataArima <- ts(dataModelo[,2:9],start=c(2016,1,1),frequency=1)
+```
+Vamos a preparar los datos para el entrenamiento y el test
+```{r}
+n <- nrow(dataArima)
+muestra  <- sample(n, n * .70)
+train    <- dataArima[muestra, ]
+test     <- dataArima[-muestra, ]
+```
+
+
+Con autoarima generamos un modelo que se ha autoajustado
+```{r}
+modeloArima<-auto.arima(train)
+summary(modeloArima)
+```
+```{r}
+pronostico<- forecast(modeloArima,h=10)
+plot(pronostico, main="Pronóstico con auto.arima", ylab="incremento NO2")
+```
+Ahora vamos a trabajar con la red neuronal
+primero generamos los datos de test y de train partiendo de la serie temporal
+```{r}
+n <- nrow(dataArima)
+muestra  <- sample(n, n * .70)
+train    <- dataArima[muestra, ]
+test     <- dataArima[-muestra, ]
+```
+```{r}
+
+```
+
+```{r}
+redNeuronal <- neuralnet(formula = 'cont8 ~ est3491 + est6809 + est4451 + est4138 + presMax + presMin + velmedia' ,data=train,  hidden=c(6,5,3,2), linear.output=TRUE, threshold=0.05)
+```
+
+Ahora vamos a verificar si hace una predicción correcta
+
+```{r}
+prediccionRN   <- compute(redNeuronal, test[,1:7])
+```
+
+```{r}
+resultado <- data.frame(real = test[,8], prediccion = prediccionRN$net.result)
+resultado
+```
+
+Verificamos de forma numérica si la predicción se ajusta al real
+```{r}
+resultado$desviacion=((resultado$real-resultado$prediccion)/resultado$real)
+precision=1-abs(mean(resultado$desviacion))
+precision
+```
+vemos la suma del error cuadrático que es otro buen indicador
+```{r}
+sumsqe <- sum (((resultado$real-resultado$prediccion)^2)/nrow(test))
+sumsqe
+```
+

@@ -1,0 +1,169 @@
+---
+title: "tablas_estaciones"
+author: "aire analytics"
+date: "September 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+ Los valores de calidad del aire ya están filtrados según estos contaminantes:
+
+    01 -- Dióxido de Azufre (SO2)
+    08 -- Dióxido de Nitrógeno (NO2)
+    14 -- Ozono (O3)
+
+
+```{r}
+#estaciones de calidad de la AEMET
+#|3195 Retiro (667m)—> 28079049(662m)
+estaciones_AEMET_ciudad <- c('3195')
+
+#estaciones de calidad del Ayuntamiento de Madrid
+#28079004 Pl España
+#28079008 Es Aguirre
+#28079049 Retiro
+#28079050 Pl Castilla
+estaciones_calidad_activas <- c('28079004','28079008','28079049','28079050')
+
+#estaciones de tráfico
+#3491 M30
+#6809 M30
+#4451 Castellana
+#4138 Atocha
+estaciones_trafico <- c('3491','6809','4451','4138')
+
+#contaminantes elegidos
+#contaminantes <- c('1','8','14')
+contaminantes <- c('8')
+```
+
+```{r}
+trafico <- read.csv2('traficoUnificado.csv', header=TRUE , sep = ',')
+aemetMadrid <- read.csv2('aemetSoloMadrid.csv', header=TRUE , sep = ',')
+calidad <- read.csv2('datosCalidadfiltradosDiario.csv', header=TRUE , sep = ';')
+```
+
+```{r}
+summary(trafico)
+summary(aemetMadrid)
+summary(calidad)
+
+```
+
+```{r}
+aemetMadrid$fecha <- gsub("/", "-", aemetMadrid$fecha)
+```
+
+vamos a utilizar sólo los datos de 2015 y 2016
+```{r}
+fechaunica <- unique(aemetMadrid$fecha)
+fechaunica <- as.Date(fechaunica)
+fechaunica <- fechaunica[fechaunica >= '2015-01-01' & fechaunica < '2017-01-01' & !is.na(fechaunica)]
+```
+
+nos quedamos con las estaciones de filtrado y los contaminantes seleccionados
+```{r}
+trafico <- trafico[trafico$id %in% estaciones_trafico, ]
+aemetMadrid <- aemetMadrid[aemetMadrid$indicativo %in% estaciones_AEMET_ciudad, ]
+#calidad <- calidad[calidad$estacion %in% estaciones_calidad_activas, ]
+#calidad <- calidad[calidad$magnitud %in% contaminantes, ]
+```
+
+
+Los datos de aemet
+```{r}
+aemetAux <- aemetMadrid[FALSE,]
+for (fecha in as.character(fechaunica)){
+  #nos quedamos con los datos de aemet
+  if ( length(which(as.character(aemetMadrid$fecha) == fecha)) > 0){
+    aemetAux[nrow(aemetAux)+1,] <- aemetMadrid[which(as.character(aemetMadrid$fecha) == fecha),][1,]
+  }
+}
+```
+
+analizaremos las estaciones de calidad
+```{r}
+calidadUnicas <- unique(calidad$ESTACION)
+```
+
+
+para los datos de tráfico vamos a poner como columnas el nombre de la estación y su valor como dato, "trasponemos los datos"
+
+```{r}
+addEst <- function (estacion) {
+  temp <- trafico[as.character(trafico$id)==as.character(estacion),]
+  intensidad <- c()
+  for (fecha in as.character(fechaunica)){
+    intAux <- 0
+    if ( length(which(as.character(temp$fecha) == fecha)) > 0){
+      intAux <- as.character(temp$intensidad[which(as.character(temp$fecha) == fecha)])
+    } else{
+      intAux <- as.character('0')
+    }
+    intensidad <- c(intensidad,intAux)
+  }
+  #print (head(traf1))
+  return(intensidad)
+}
+```
+usamos un dataframe auxiliar
+```{r}
+datosFinalesAux <- data.frame(fechaunica)
+colnames(datosFinalesAux) <- c('fecha')
+```
+
+aplicamos la funcion al vector de estaciones
+```{r}
+for (estacion in as.character(estaciones_trafico)){
+  datosFinalesAux$nueva <- NA
+  intensidad <- addEst(as.character(estacion))
+  datosFinalesAux$nueva <- intensidad
+  colnames(datosFinalesAux)[colnames(datosFinalesAux)=="nueva"] <- paste0("est",as.character(estacion))
+}
+```
+añadimos los datos metereológicos y quitamos algunos duplicados
+```{r}
+for (columna in c('prec','presMax','presMin','racha','dir','velmedia','tmax','tmed','tmin')){
+  datosFinalesAux$nueva <- NA
+  for (fecha in as.character(fechaunica)){
+    datosAux <- 0
+    if ( length(which(as.character(aemetAux$fecha) == fecha)) > 0){
+      datosAux <- as.character(aemetAux[[columna]][which(as.character(aemetAux$fecha) == fecha)])
+    } else{
+      datosAux <- as.character('0')
+    }
+    datosFinalesAux$nueva[which(as.character(datosFinalesAux$fecha) == fecha)] <- datosAux
+  }
+  colnames(datosFinalesAux)[colnames(datosFinalesAux)=="nueva"] <- columna
+}
+```
+realizamos la misma operación para los valores de los contaminantes de cada y guardamos cada fichero independiente. Nos quedamos sólo NO2 que es de lo que tenemos siempre dato
+hay que hacer bucle por estación, bucle por contaminante y bucle por fechas
+```{r}
+for (estacion in as.character(estaciones_calidad_activas)){
+#for (estacion in as.character(calidadUnicas)){
+#'28079004','28079008','28079049','28079050'
+  auxiliar <- datosFinalesAux
+  calidadAux <- calidad[as.character(calidad$ESTACION) == estacion, ]
+  for (contaminante in as.character(contaminantes)){
+    calidadAux2 <- calidadAux[as.character(calidadAux$MAGNITUD) == contaminante,]
+    print(paste(nrow(calidadAux2),estacion, contaminante))
+
+    auxiliar$nueva <- NA
+    for (fecha in as.character(fechaunica)){
+      if ( length(which(as.character(calidadAux2$fecha) == fecha)) > 0){
+        intAux <- as.character(calidadAux2$valor[which(as.character(calidadAux2$fecha) == fecha)])
+        #print(paste("distinto: ", intAux, which(as.character(auxiliar$fecha) == fecha)))
+      } else{
+        intAux <- as.character('NA')
+      }
+      auxiliar$nueva[which(as.character(auxiliar$fecha) == fecha)] <- as.character(intAux)
+    }
+    colnames(auxiliar)[colnames(auxiliar)=="nueva"] <- paste0("cont",as.character(contaminante))
+  }
+  write.csv(auxiliar,file=paste0(as.character(estacion),'datos.csv'))
+}
+```
+
