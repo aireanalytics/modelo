@@ -1,0 +1,239 @@
+---
+title: "modelo_LSTM"
+author: "aire analytics"
+date: "September 2, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+#estaciones de calidad del Ayuntamiento de Madrid
+#28079004 Pl España
+#28079049 Retiro
+estaciones_calidad_activas <- c('28079004','28079049')
+
+```
+
+```{r}
+data <- read.csv2('28079004datos.csv', header = TRUE, sep = ',')
+```
+eliminamos NA
+```{r}
+data <- data[!is.na(data$cont8),]
+```
+eliminamos la columna X
+
+```{r}
+data <- data[,c('fecha','est3491','est6809','est4451','est4138','prec','presMax','presMin','racha',
+                'velmedia','tmax','tmed','tmin','cont8')]
+```
+
+se selecciona el tipo de cada dato
+```{r}
+data$fecha <- as.Date(data$fecha)
+data$est3491 <- as.numeric(data$est3491)
+data$est6809 <- as.numeric(data$est6809)
+data$est4451 <- as.numeric(data$est4451)
+data$est4138 <- as.numeric(data$est4138)
+data$prec <- as.numeric(data$prec)
+data$presMax <- as.numeric(data$presMax)
+data$presMin <- as.numeric(data$presMin)
+data$racha <- as.numeric(data$racha)
+data$velmedia <- as.numeric(data$velmedia)
+data$tmax <- as.numeric(data$tmax)
+data$tmed <- as.numeric(data$tmed)
+data$tmin <- as.numeric(data$tmin)
+data$cont8 <- as.numeric(data$cont8)
+
+```
+
+Incluimos el dato de los últimos 3 días. Tráfico, precipitaciones, velocidad de racha y la contaminación del día -2(el que lanza la predicción)
+```{r}
+data$est3491_2 <-NA[]
+data$est6809_2 <-NA[]
+data$est4451_2 <-NA[]
+data$est4138_2 <-NA[]
+data$est3491_3 <-NA[]
+data$est6809_3 <-NA[]
+data$est4451_3 <-NA[]
+data$est4138_3 <-NA[]
+data$est3491_4 <-NA[]
+data$est6809_4 <-NA[]
+data$est4451_4 <-NA[]
+data$est4138_4 <-NA[]
+data$prec_2 <- NA[]
+data$prec_3 <- NA[]
+data$prec_4 <- NA[]
+data$vel_2 <- NA[]
+data$vel_3 <- NA[]
+data$vel_4 <- NA[]
+data$presMax_2 <- NA[]
+data$presMax_3 <- NA[]
+data$presMax_4 <- NA[]
+data$presMin_2 <- NA[]
+data$presMin_3 <- NA[]
+data$presMin_4 <- NA[]
+data$cont_2 <- NA[]
+```
+
+```{r}
+for (i in (5:nrow(data))){
+  data$est3491_2[i] <- as.numeric(data$est3491[i-2])
+  data$est6809_2[i] <- as.numeric(data$est6809[i-2])
+  data$est4451_2[i] <- as.numeric(data$est4451[i-2])
+  data$est4138_2[i] <- as.numeric(data$est4138[i-2])
+  data$est3491_3[i] <- as.numeric(data$est3491[i-3])
+  data$est6809_3[i] <- as.numeric(data$est6809[i-3])
+  data$est4451_3[i] <- as.numeric(data$est4451[i-3])
+  data$est4138_3[i] <- as.numeric(data$est4138[i-3])
+  data$est3491_4[i] <- as.numeric(data$est3491[i-4])
+  data$est6809_4[i] <- as.numeric(data$est6809[i-4])
+  data$est4451_4[i] <- as.numeric(data$est4451[i-4])
+  data$est4138_4[i] <- as.numeric(data$est4138[i-4])
+  data$prec_2[i] <- as.numeric(data$prec[i-2])
+  data$prec_3[i] <- as.numeric(data$prec[i-3])
+  data$prec_4[i] <- as.numeric(data$prec[i-4])
+  data$vel_2[i] <- as.numeric(data$velmedia[i-2])
+  data$vel_3[i] <- as.numeric(data$velmedia[i-3])
+  data$vel_4[i] <- as.numeric(data$velmedia[i-4])
+  data$presMax_2[i] <- as.numeric(data$presMax[i-2])
+  data$presMax_3[i] <- as.numeric(data$presMax[i-3])
+  data$presMax_4[i] <- as.numeric(data$presMax[i-4])
+  data$presMin_2[i] <- as.numeric(data$presMin[i-2])
+  data$presMin_3[i] <- as.numeric(data$presMin[i-3])
+  data$presMin_4[i] <- as.numeric(data$presMin[i-4])  
+  data$cont_2[i] <- as.numeric(data$cont8[i-2])
+}
+```
+
+
+Vamos a realizar la predicción sobrel el incremento de contaminación, por lo tanto lo que hacemos es generar una nueva variable que indica el incremento del contaminante sobre los dos días anteriores
+
+```{r}
+data$incremento <-NA[]
+```
+
+```{r}
+for (i in (3:nrow(data))){
+  data$incremento[i] <- as.numeric(data$cont8[i]) - as.numeric(data$cont8[i-2])
+}
+```
+
+
+normalizamos los datos eliminando las filas que no tiene incremento y no tienen tráfico acumulado
+```{r}
+dataNuevo <- data[!is.na(data$vel_4),]
+dataNorm <- scale(dataNuevo[,2:40])
+```
+
+```{r}
+datos = cor(dataNorm)
+#print(datos)
+```
+```{r}
+library(ggcorrplot)
+ggcorrplot(datos)
+```
+
+creamos una matriz con los datos normalizados que influyen en la contaminacion y nos quedamos con el incremento de contaminante
+```{r}
+dataModelo <- dataNorm[, c('est3491_2','est6809_2','est4451_2','est4138_2','est3491_3','est6809_3','est4451_3','est4138_3',
+                           'est3491_4','est6809_4','est4451_4','est4138_4','prec_2','prec_3','prec_4',
+                           'vel_2','vel_3','vel_4', 'presMax_2','presMax_3','presMax_4',
+                           'presMin_2','presMin_3','presMin_4','cont_2','incremento')] 
+```
+se añade la fecha
+```{r}
+dataModelo <- cbind(as.Date(dataNuevo$fecha), dataModelo) 
+```
+
+```{r}
+colnames(dataModelo)[1] <- 'fecha'
+```
+
+Representamos gráficamente las variables en el tiempo con el factor de contaminación para ver las realaciones
+```{r}
+for (col in (2:12)){
+  plot(x=dataModelo[,1], y=dataModelo[,c(col)], type = "l", main = colnames(dataModelo)[col], col='blue')
+  lines(x=dataModelo[,1], y=dataModelo[,13], col='green')
+}
+```
+
+
+```{r}
+library(ROCR)
+library(caTools)
+```
+
+### Bloque de creación de conjuntos de entrenamiento, validación y test
+
+Sobre el Dataset de datos históricos vamos a construir un modelo que permita la prediccións.
+Para poder construir un modelo necesitamos contar con un conjunto de datos de entrenamiento que nos permitan aprender los patrones incluidos en los datos. Para seleccionar entre los modelos y poder asegurar que los patrones aprendidos son generalizables necesitamos valorar nuestros modelos en un conjunto de validación.
+
+Por último debemos contar con un conjunto de test que nos permita establecer la capacidad predictiva del modelo elegido, este conjunto no debe utilizarse durante el proceso de construcción y validacion del modelo.
+
+Por este motivo dividimos nuestro conjunto de datos en tres conjuntos: entrenamiento(60%), validación(20%) y test(20%). Para que todo el proceso sea reproducible se ha fijado una semilla mediante el comando set.seed.
+
+Primero se divide el conjunto total en dos conjuntos:
+
+```{r split}
+dfModelo <- data.frame(dataModelo)
+set.seed(1234)
+n <- nrow(dfModelo)
+muestra  <- sample(n, n * .70)
+train    <- dfModelo[muestra, ]
+test     <- dfModelo[-muestra, ]
+```
+
+
+De forma que tenemos 2 conjuntos train y test 
+
+```{r tamano}
+dim(dfModelo)
+dim(train)
+dim(test)
+```
+
+
+### Bloque de Construcción de Modelos
+
+```{r}
+#modelo de regresión lineal múltiple
+modelo <- lm(formula = 'incremento ~ est3491_2 + est6809_2 + est4451_2 + est4138_2 + est3491_3 + est6809_3 + est4451_3 + est4138_3 + 
+             est3491_4 + est6809_4 + est4451_4 + est4138_4 + prec_2 + prec_3 + prec_4 + 
+             vel_2 + vel_3 + vel_4 + presMax_2 + presMax_3 + presMax_4 + presMin_2 + presMin_3 + presMin_4 + cont_2' ,data=train)
+```
+
+Ahora vamos a verificar si hace una predicción correcta
+
+```{r}
+prediccionLM   <- predict(modelo, test[,1:26])
+```
+
+
+```{r}
+resultado <- data.frame(real = test[,27], prediccion = prediccionLM)
+resultado
+```
+
+Verificamos de forma numérica si la predicción se ajusta al real
+```{r}
+resultado$desviacion=((resultado$real-resultado$prediccion)/resultado$real)
+precision=1-abs(mean(resultado$desviacion))
+precision
+```
+vemos la suma del error cuadrático que es otro buen indicador
+```{r}
+sumsqe <- sum (((resultado$real-resultado$prediccion)^2)/nrow(test))
+sumsqe
+```
+
+```{r}
+plot(resultado$real[50:150], type = "l", main = "Resultado regresión lineal múltiple sobre incremento a 48hr", col='blue')
+lines(resultado$prediccion[50:150], col='green')
+```
+
+
